@@ -1,0 +1,126 @@
+note 1
+the multiple pizzas is to reuse components...
+new components are created using functions
+the blue lines are showing commits cos using create-react-app it uses git too
+to remove the above =>settings=>diff decorations=>none...
+
+note 2
+const headinStyle = {
+    color: "red",
+    fontSize: "48px",
+    textTransform: "uppercase",
+  };
+
+note 3
+  return React.createElement("footer", null, "We're currently open!");
+  if written without JSX, it looks so complex
+
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  console.log(isOpen);
+
+  const [time, setTime] = useState;
+
+  // setTime = hour >= 12 && hour <= 22 ? "true" : "false";
+  hour >= openHour && hour <= closeHour
+    ? alert("We are currently Open")
+    : alert("We are currently Closed");
+
+note 4
+strictmode, the stuff is always rendered twice to the browser
+component : (dATA -logic-appearance)
+JSX- declartive syntax to describe the appearance of comp.
+jsx is an extension of js that allows html,css and js
+babel is a tool used to convert jsx to js i.e React.createElement
+browsers don't understand jsx so babel is really needful
+imperative and declarative approach
+imperative manual DOM selcetion of elements and tranversing
+declarative describe how the UI shoud like based on current data
+
+pizza text
+<Pizza
+        name={pizzaData[0].name}
+        photoName={pizzaData[0].photoName}
+        ingredients={pizzaData[0].ingredients}
+        price={pizzaData[0].price}
+      />
+      <Pizza
+        name={pizzaData[3].name}
+        photoName={pizzaData[3].photoName}
+        ingredients={pizzaData[3].ingredients}
+        price={pizzaData[3].price}
+      />
+      <Pizza
+        name={pizzaData[2].name}
+        photoName={pizzaData[2].photoName}
+        ingredients={pizzaData[2].ingredients}
+        price={pizzaData[2].price}
+      />
+
+props and states
+props is data coming from the outside, and can only be updated by the parent component
+state is internal data that can be updated by the component's logic
+props are immutable, meaning they can't be changed
+states are mutable and can be changed easily
+in react props adapts one-way data flow while angular is two way
+it is passed from parents to children comp and not the other way
+
+difference between JSX and html
+In JSX, we enter JavaScript mode using {}
+Statements aren't allowed(if/else, for,switch)
+JSX, can only have one root element if in need of more, ReCT.fRAGMENT
+
+aspect ratio: 1 makes a square i.e l=b
+can be done on tailwind by:
+step 1
+Install the Tailwind CSS Plugin:
+npm install @tailwindcss/aspect-ratio
+or
+yarn add @tailwindcss/aspect-ratio
+step 2
+Add the Plugin to your Tailwind Config:
+// tailwind.config.js
+
+module.exports = {
+  // Other Tailwind CSS configurations
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    // Other plugins
+  ],
+};
+step 3
+Use the aspect-ratio Utility Class
+<div class="aspect-w-1 aspect-h-1 bg-gray-200"></div>
+
+.header::before and after could be a span with absolute position
+h-3 sets the height of the line to 3 pixels.
+w-4 sets the width of the line to 4 rems.
+bg-yellow-500 sets the background color to a shade of yellow.
+top-1/2 positions the line at 50% from the top.
+transform -translate-y-1/2 vertically centers the line.
+left-0 and right-0 position the lines at the left and right edges of the heading respectively
+
+pizza alt
+{pizzaData.map((pizza, index) => (
+  <Pizza
+    key={index}
+    name={pizza.name}
+    photoName={pizza.photoName}
+    ingredients={pizza.ingredients}
+    price={pizza.price}
+  />
+))}
+can be written better as 
+{pizzaData.map((pizza) =>(
+  <Pizza pizzaobj = {pizza} key= pizz.name/>
+))}
+func Pizza(props){
+  return {props.pizzaobj.name} etc.
+}
+
+conditional rendering
+1. with &&
+2. with tenary operators, useful to return some piece of different JSX.
+3. multiple returs, useful if you want to return different componenets 
